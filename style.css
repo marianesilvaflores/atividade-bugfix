@@ -124,9 +124,5 @@ select:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
 #theme-toggle { flex-shrink:0; padding:12px 16px; }
 @media(min-width:651px) and (max-width:900px) { .header { flex-wrap:wrap; padding-block:24px; } }
 
-/* O hover geral escurecia o fundo sem ajustar o texto no tema escuro. */
-@media (hover:hover) {
-  [data-theme="dark"] button:hover { background:#ffd1df; color:#321e28; }
-}
-/* Mantém o foco visível sobre os controles rosa do tema escuro. */
-[data-theme="dark"] button:focus-visible { outline-color:#fff2e8; }
+/* O atalho herdava texto branco sobre o fundo quase branco do tema escuro. */
+[data-theme="dark"] .skip-link { background:#fff2e8; color:#321e28; }
