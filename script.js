@@ -47,7 +47,7 @@ document.querySelectorAll('[data-filter]').forEach(button => button.addEventList
   updateProducts();
 }));
 
-function normalize(value) { return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim(); }
+function normalize(value) { return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[\s-]+/g, '').trim(); }
 document.querySelector('#search').addEventListener('input', event => {
   menuState.search = normalize(event.target.value);
   updateProducts();
@@ -104,3 +104,4 @@ themeButton.addEventListener('click', () => {
   try { localStorage.setItem('doce-theme', dark ? 'dark' : 'light'); } catch {}
 });
 try { setTheme(localStorage.getItem('doce-theme') === 'dark'); } catch { setTheme(false); }
+
