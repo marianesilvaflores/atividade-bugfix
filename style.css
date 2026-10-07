@@ -123,3 +123,6 @@ select:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
 [data-theme="dark"] .error { color:#ffb8ca; }
 #theme-toggle { flex-shrink:0; padding:12px 16px; }
 @media(min-width:651px) and (max-width:900px) { .header { flex-wrap:wrap; padding-block:24px; } }
+
+/* O atalho herdava texto branco sobre o fundo quase branco do tema escuro. */
+[data-theme="dark"] .skip-link { background:#fff2e8; color:#321e28; }
