@@ -13,10 +13,10 @@ Abra `index.html` no navegador. Para os testes de regressão, use Node.js e exec
 | Branch | Problema | Resultado esperado |
 | --- | --- | --- |
 | `bugfix/busca-milkshake` | Buscar milkshake sem hífen não encontra Milk-shake | Encontrar com ou sem hífen, espaço e acentos |
-| `bugfix/contraste-tema-escuro` | Hover aplica fundo escuro com texto escuro em botões | Estados dos botões com contraste de texto de pelo menos 4,5:1 |
+| `bugfix/contraste-tema-escuro` | Atalho Pular para o cardápio fica com texto branco sobre fundo quase branco no tema escuro | Atalho com contraste de texto de pelo menos 4,5:1 |
 | `bugfix/foco-favoritos` | Remover favorito da lista filtrada oculta o botão que tem foco | Mover foco para o próximo favorito visível ou para Só favoritos |
 
-Cada correção será apresentada em um pull request para `main`. Os PRs permanecerão abertos até a revisão da autora pela segunda conta. As alterações não foram aprovadas por um colega.
+Cada correção está apresentada em um pull request para `main`. Os PRs permanecerão abertos até a revisão da autora pela segunda conta. As alterações não foram aprovadas por um colega.
 
 ## Revisão pendente
 
@@ -26,4 +26,13 @@ Cada correção será apresentada em um pull request para `main`. Os PRs permane
 4. Depois da revisão, integrar os PRs em `main`.
 
 As imagens foram geradas com IA da OpenAI para o projeto original. Fontes DM Sans e Fraunces via Google Fonts. Produtos e preços ilustrativos; nenhum pedido ou pagamento é enviado.
+
+
+## Pull requests para revisar
+
+- [PR #1 — Busca](https://github.com/marianesilvaflores/atividade-bugfix/pull/1)
+- [PR #2 — Contraste do atalho](https://github.com/marianesilvaflores/atividade-bugfix/pull/2)
+- [PR #3 — Foco nos favoritos](https://github.com/marianesilvaflores/atividade-bugfix/pull/3)
+
+Os testes usam um DOM simulado para busca e foco e cálculo de contraste das cores declaradas no CSS. Em ambientes que bloqueiam subprocessos, Node.js 24 permite executar com --test-isolation=none.
 
