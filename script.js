@@ -47,7 +47,7 @@ document.querySelectorAll('[data-filter]').forEach(button => button.addEventList
   updateProducts();
 }));
 
-function normalize(value) { return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim(); }
+function normalize(value) { return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[\s-]+/g, '').trim(); }
 document.querySelector('#search').addEventListener('input', event => {
   menuState.search = normalize(event.target.value);
   updateProducts();
@@ -78,6 +78,12 @@ document.querySelectorAll('[data-favorite]').forEach(button => button.addEventLi
   favorites.has(id) ? favorites.delete(id) : favorites.add(id);
   try { localStorage.setItem('doce-favorites', JSON.stringify([...favorites])); } catch {}
   renderFavorites();
+  // Não deixa o foco dentro de um card que acabou de ser ocultado.
+  if (button.closest('[data-product]').hidden) {
+    const nextCard = products.find(card => !card.hidden);
+    const nextControl = nextCard ? nextCard.querySelector('[data-favorite]') : document.querySelector('#favorites-only');
+    nextControl.focus();
+  }
 }));
 
 try {
@@ -104,3 +110,4 @@ themeButton.addEventListener('click', () => {
   try { localStorage.setItem('doce-theme', dark ? 'dark' : 'light'); } catch {}
 });
 try { setTheme(localStorage.getItem('doce-theme') === 'dark'); } catch { setTheme(false); }
+
