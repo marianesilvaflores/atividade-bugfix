@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cardápio Doce Gelado: milk-shake, cascão e sorvete por peso. Escolha seu jeito favorito de refrescar o dia.">
+  <meta name="theme-color" content="#fff9f2">
+  <title>Doce Gelado · Cardápio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#cardapio">Pular para o cardápio</a>
+  <header class="header">
+    <a class="brand" href="#inicio">doce gelado<span> SORVETERIA</span></a>
+    <nav aria-label="Navegação principal"><a href="#cardapio">Nosso cardápio</a><a href="#por-peso">Calcule por peso</a></nav>
+    <button type="button" id="theme-toggle" aria-pressed="false">Tema escuro</button>
+  </header>
+  <main id="inicio">
+    <section class="intro" aria-labelledby="titulo">
+      <p class="eyebrow">UMA PAUSA PARA ALGO GOSTOSO</p>
+      <h1 id="titulo">Seu dia merece<br>uma <em>dose de doçura.</em></h1>
+      <p>Cremoso, crocante ou do seu jeito.<br>Escolha como você quer se refrescar hoje.</p>
+    </section>
+    <section class="menu-section" id="cardapio" aria-labelledby="titulo-cardapio">
+      <div class="section-title"><h2 id="titulo-cardapio">Nosso cardápio</h2><span>3 jeitos de ser feliz</span></div>
+      <div class="menu-tools"><label class="search-label" for="search">Encontre seu favorito<input id="search" aria-controls="products" type="search" placeholder="Buscar no cardápio" autocomplete="off"></label><button type="button" id="favorites-only" aria-pressed="false">Só favoritos</button><div class="filters" role="group" aria-label="Categorias"><button type="button" data-filter="todos" aria-pressed="true">Todos</button><button type="button" data-filter="milkshake" aria-pressed="false">Milk-shake</button><button type="button" data-filter="cascao" aria-pressed="false">Cascão</button><button type="button" data-filter="peso" aria-pressed="false">Por peso</button></div></div>
+      <p id="menu-status" class="hint" role="status">3 opções encontradas</p><div class="menu-grid" id="products">
+        <article class="product milkshake" data-product="milkshake"><button class="favorite" type="button" data-favorite="milkshake" aria-pressed="false" aria-label="Favoritar Milk-shake">♡</button>
+          <div class="photo"><img src="img/milkshake.png" alt="Milk-shake de morango com chantilly, morango fresco e canudo listrado" width="1254" height="1254"><span class="badge">O queridinho</span></div>
+          <div class="product-content"><span class="category">CREMOSO ATÉ O ÚLTIMO GOLE</span><h3>Milk-shake</h3><p>Bem geladinho, batido na hora e com uma generosa camada de chantilly.</p><p class="flavors">Morango · Chocolate · Baunilha</p><label class="choice" for="size">Tamanho do milk-shake<select id="size"><option value="300">300 ml · R$ 14,00</option><option value="400" selected>400 ml · R$ 18,00</option><option value="500">500 ml · R$ 22,00</option></select></label><div class="price-row" aria-live="polite"><strong id="shake-price">R$ 18,00</strong><span id="shake-size">copo de 400 ml</span></div></div>
+        </article>
+        <article class="product cascao" data-product="cascao"><button class="favorite" type="button" data-favorite="cascao" aria-pressed="false" aria-label="Favoritar Cascão">♡</button>
+          <div class="photo"><img src="img/cascao.png" alt="Cascão crocante com bolas de sorvete de morango e baunilha" width="1254" height="1254"><span class="badge">Um clássico</span></div>
+          <div class="product-content"><span class="category">CROCÂNCIA A CADA MORDIDA</span><h3>Cascão</h3><p>Duas bolas dos seus sabores favoritos em uma casquinha dourada e crocante.</p><p class="flavors">Morango · Chocolate · Baunilha</p><label class="choice" for="flavor-one">Primeira bola<select id="flavor-one"><option selected>Morango</option><option>Chocolate</option><option>Baunilha</option></select></label><label class="choice" for="flavor-two">Segunda bola<select id="flavor-two"><option>Morango</option><option>Chocolate</option><option selected>Baunilha</option></select></label><p id="flavor-summary" class="selection-summary" aria-live="polite">Seu cascão: Morango + Baunilha</p><div class="price-row"><strong>R$ 12,00</strong><span>2 bolas de sorvete</span></div></div>
+        </article>
+        <article class="product peso" data-product="peso"><button class="favorite" type="button" data-favorite="peso" aria-pressed="false" aria-label="Favoritar Sorvete por peso">♡</button>
+          <div class="photo"><img src="img/peso.png" alt="Tigela de sorvete com três sabores, calda de chocolate e confeitos" width="1254" height="1254"><span class="badge">Do seu jeito</span></div>
+          <div class="product-content"><span class="category">UM POUQUINHO DE CADA</span><h3>Sorvete por peso</h3><p>Misture sabores, escolha a cobertura e monte um potinho com a sua cara.</p><p class="flavors">Seu mix de sabores + coberturas</p><div class="price-row"><strong>R$ 6,00</strong><span>a cada 100 g</span></div></div>
+        </article>
+      </div>
+    </section>
+    <section class="calculator" id="por-peso" aria-labelledby="titulo-calculadora">
+      <div class="calculator-intro"><p class="eyebrow">SÓ O QUE VOCÊ QUISER</p><h2 id="titulo-calculadora">Seu potinho, sua medida.</h2><p>R$ 60,00 por quilo. Informe o peso do sorvete<br>e descubra quanto fica.</p></div>
+      <form id="weight-form" novalidate>
+        <label for="weight">Peso do sorvete</label>
+        <div class="input-row"><div class="input-wrap"><input id="weight" name="weight" type="number" min="1" max="5000" step="1" inputmode="numeric" value="200" required aria-describedby="weight-hint weight-error"><span aria-hidden="true">g</span></div><button type="submit">Calcular</button></div>
+        <p id="weight-hint" class="hint">De 1 a 5.000 g, sem o peso da embalagem.</p>
+        <p id="weight-error" class="error" role="alert"></p>
+        <div class="result"><span>Seu total estimado</span><output id="total" for="weight" aria-live="polite">R$ 12,00</output></div>
+      </form>
+      <noscript><p>Ative o JavaScript para calcular. Cada 100 g custa R$ 6,00.</p></noscript>
+    </section>
+  </main>
+  <footer><a class="footer-brand" href="#inicio">doce gelado</a><p>Feito por Mariane Silva Flores · Atividade Branchs</p><span>Cardápio ilustrativo</span></footer>
+</body>
+</html>
